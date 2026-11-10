@@ -1,0 +1,231 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+}
+
+.invitation {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f8edf1,
+    #f5ecf0,
+    #fff7f9
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.opening {
+  text-align: center;
+  color: #98566e;
+}
+
+.envelope-wrapper {
+  margin: 0 auto 45px;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 185px;
+  background: #e9a9bd;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px #9e526033;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #d88ba6;
+}
+
+.envelope-paper {
+  position: absolute;
+  width: 85%;
+  height: 90%;
+  left: 7.5%;
+  top: 5%;
+  background: #fffafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bd718e;
+  font-style: italic;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 110px solid #f4bfd0;
+  transform-origin: top;
+  transition: transform 0.8s;
+  z-index: 3;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    transparent 49.5%,
+    #e5a1b7 50%
+  );
+  z-index: 2;
+}
+
+.envelope-bow {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 43px;
+}
+
+.opening h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.opening p {
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.opening button {
+  background: #c77e98;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.opening button:hover {
+  background: #a95d7c;
+  transform: translateY(-3px);
+}
+
+.invitation-card {
+  width: 100%;
+  max-width: 650px;
+  min-height: 750px;
+  background: #fffafc;
+  padding: 35px;
+  border: 8px double #e9bdca;
+  box-shadow: 0 15px 50px #a85c7520;
+  animation: appear 1s ease;
+}
+
+.card-content {
+  min-height: 650px;
+  border: 1px solid #edcbd6;
+  padding: 45px 25px;
+  text-align: center;
+  color: #986078;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitle {
+  letter-spacing: 5px;
+  font-size: 12px;
+}
+
+.decorative-line {
+  margin: 25px 0;
+  color: #c68a9f;
+}
+
+.card-content h1 {
+  font-size: 45px;
+  letter-spacing: 8px;
+  margin-bottom: 25px;
+}
+
+.card-content h2 {
+  font-size: 25px;
+  margin: 20px 0;
+}
+
+.welcome {
+  font-style: italic;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin: 15px 0;
+}
+
+.card-content > p:not(.subtitle):not(.welcome) {
+  line-height: 1.8;
+}
+
+.event-info {
+  margin: 30px 0;
+  line-height: 2;
+}
+
+.event-info strong {
+  letter-spacing: 3px;
+  color: #b87891;
+}
+
+.ending {
+  font-style: italic;
+}
+
+.flower {
+  margin-top: 25px;
+  font-size: 25px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .invitation-card {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .card-content {
+    padding: 35px 15px;
+  }
+
+  .card-content h1 {
+    font-size: 32px;
+  }
+
+  .name {
+    font-size: 23px;
+  }
+}
