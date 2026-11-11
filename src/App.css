@@ -108,7 +108,7 @@ body {
 
 .opening button {
   background: #c77e98;
-  color: white;
+  color: rgb(243, 226, 226);
   border: none;
   padding: 14px 32px;
   border-radius: 30px;
@@ -138,7 +138,7 @@ body {
   border: 1px solid #edcbd6;
   padding: 45px 25px;
   text-align: center;
-  color: #986078;
+  color: #fdfdfd;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,4 +228,15 @@ body {
   .name {
     font-size: 23px;
   }
+  
+/* Cuộn trang mượt */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Chỉ ngăn tràn ngang, không can thiệp kích thước từng Page */
+.invitation-content {
+  overflow-x: hidden;
+}
+
 }
