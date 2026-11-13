@@ -7,8 +7,10 @@ function Page5() {
     "https://script.google.com/macros/s/AKfycbxInoLKNjTrdMuaxnU3_0ipympiokQmnxtMPUoVwIvz_J_YOTSJ_O1WoAkh6T3vU-Ap/exec";
 
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState("Có, mình sẽ tham dự");
-  const [time, setTime] = useState("10:00 - 11:00");
+  const [attendance, setAttendance] = useState(
+    "💗 Có chứ, mình nhất định sẽ đến!"
+  );
+  const [time, setTime] = useState("🎀 10:00 – 11:00");
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -72,6 +74,7 @@ function Page5() {
     fontSize: "15px",
     fontWeight: "bold",
     marginBottom: "10px",
+    lineHeight: 1.5,
   };
 
   const optionStyle: React.CSSProperties = {
@@ -86,6 +89,7 @@ function Page5() {
     color: "#7c2636",
     fontSize: "14px",
     cursor: "pointer",
+    lineHeight: 1.5,
   };
 
   return (
@@ -102,6 +106,7 @@ function Page5() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         fontFamily: '"Times New Roman", Times, serif',
+        overflow: "hidden",
       }}
     >
       {/* Tiêu đề */}
@@ -109,39 +114,51 @@ function Page5() {
         style={{
           textAlign: "center",
           color: "#f6c4c2",
-          marginBottom: "25px",
+          marginBottom: "18px",
+          width: "100%",
         }}
       >
         <h2
           style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "8px",
             fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "23px",
+            fontSize: "clamp(19px, 5vw, 23px)",
             margin: "5px 0",
             color: "#e88383",
+            whiteSpace: "nowrap",
           }}
         >
-          <span style={{ fontSize: "28px" }}>🎓</span>{" "}
+          <span style={{ fontSize: "25px" }}>🎓</span>
           XÁC NHẬN THAM DỰ
         </h2>
 
-        <p style={{ fontSize: "16px", margin: "5px 0" }}>
-          Lễ tốt nghiệp của mình
+        <p
+          style={{
+            fontSize: "20px",
+            margin: "10px 0",
+            color: "#f6c4c2",
+          }}
+        >
+          Lễ tốt nghiệp của LinLin nhoaa
         </p>
 
         <p
           style={{
             fontSize: "12px",
-            fontStyle: "italic",
             margin: "8px 0",
             color: "#f8f8f8",
+            lineHeight: 1.5,
           }}
         >
-          Rất mong được gặp bạn trong ngày đặc biệt!
+          Sự hiện diện của bạn sẽ khiến ngày đặc biệt này trọn vẹn hơn. 🌷
         </p>
 
         <div
           style={{
-            width: "90%",
+            width: "100%",
             height: "1px",
             backgroundColor: "#b56a76",
             margin: "20px auto 0",
@@ -149,10 +166,12 @@ function Page5() {
         />
       </div>
 
-      {/* Form */}
+      {/* Form xác nhận */}
       <form
         onSubmit={handleSubmit}
         style={{
+          width: "100%",
+          margin: "0 auto",
           backgroundColor: "#ffe1e1",
           padding: "18px 15px",
           borderRadius: "12px",
@@ -161,7 +180,9 @@ function Page5() {
       >
         {/* Họ tên */}
         <div style={{ marginBottom: "20px" }}>
-          <label style={labelStyle}>Họ và tên:</label>
+          <label style={labelStyle}>
+            Bạn tên gì để Linlin lưu lại kỷ niệm nè? 🎀
+          </label>
 
           <input
             type="text"
@@ -176,12 +197,12 @@ function Page5() {
         {/* Tham dự */}
         <div style={{ marginBottom: "20px" }}>
           <label style={labelStyle}>
-            Bạn có thể tham dự không?
+            Bạn sẽ dành chút thời gian đến chung vui cùng Linlin chứ? 🧸
           </label>
 
           {[
-            "Có, mình sẽ tham dự",
-            "Rất tiếc, mình không thể",
+            "💗 Có chứ, mình nhất định sẽ đến!",
+            "🥺 Tiếc quá, lần này mình không thể tham gia rồi...",
           ].map((item) => (
             <label key={item} style={optionStyle}>
               <input
@@ -199,10 +220,10 @@ function Page5() {
         {/* Thời gian */}
         <div style={{ marginBottom: "20px" }}>
           <label style={labelStyle}>
-            Bạn sẽ tham gia vào khung giờ nào?
+            Linlin nên đón bạn vào lúc nào đây ta? 🥰
           </label>
 
-          {["07:00 - 08:00", "10:00 - 11:00"].map((item) => (
+          {["🌷 06:00 – 06:50", "🎀 10:00 – 11:00"].map((item) => (
             <label key={item} style={optionStyle}>
               <input
                 type="radio"
@@ -219,7 +240,7 @@ function Page5() {
         {/* Ghi chú */}
         <div style={{ marginBottom: "20px" }}>
           <label style={labelStyle}>
-            Ghi chú thêm nếu cần:
+            Để lại vài lời yêu thương cho Linlin nhé! 💌
           </label>
 
           <textarea
@@ -252,7 +273,7 @@ function Page5() {
             opacity: loading ? 0.7 : 1,
           }}
         >
-          {loading ? "ĐANG GỬI..." : "GỬI XÁC NHẬN"}
+          {loading ? "ĐANG GỬI..." : "GỬI LINLIN NHA 💗"}
         </button>
 
         {/* Thông báo */}
@@ -270,6 +291,49 @@ function Page5() {
           </p>
         )}
       </form>
+
+      {/* Khung thông tin liên hệ */}
+      <div
+        style={{
+          width: "100%",
+          margin: "16px auto 0",
+          padding: "15px 13px",
+          boxSizing: "border-box",
+          backgroundColor: "#ffe1e1",
+          borderRadius: "12px",
+          color: "#70202d",
+          fontFamily: '"Times New Roman", Times, serif',
+          fontSize: "14px",
+          lineHeight: 1.6,
+        }}
+      >
+        <p
+          style={{
+            margin: "0 0 10px",
+            fontWeight: "bold",
+            color: "#9c1d32",
+            fontSize: "16px",
+          }}
+        >
+          📍 Nếu bạn đã đến trường nhưng chưa tìm thấy Linlin, hãy nhắn tin hoặc gọi cho mình nhé!
+        </p>
+
+        <p style={{ margin: "8px 0" }}>
+          💗 Linlin: [Số điện thoại của Linlin]
+        </p>
+
+        <p style={{ margin: "8px 0" }}>
+          🌷 Chị Hai: [Số điện thoại của chị Hai]
+        </p>
+
+        <p style={{ margin: "12px 0" }}>
+          Nếu Linlin chưa kịp nghe máy, bạn có thể liên hệ chị Hai giúp mình nha. Đừng ngại gọi, mọi người sẽ hỗ trợ bạn tìm Linlin nhé! 🥰
+        </p>
+
+        <p style={{ margin: "12px 0 0" }}>
+          Cảm ơn bạn đã đến chung vui cùng Linlin. Hẹn gặp bạn vào ngày đặc biệt ấy! 🎓
+        </p>
+      </div>
     </div>
   );
 }

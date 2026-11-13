@@ -1,5 +1,5 @@
 import background from "../assets/backgourg1.png";
-import totnghiep from "../assets/totphiep.jpg";
+
 function Page2() {
  
 
@@ -72,42 +72,7 @@ function Page2() {
           zIndex: 2,
         }}
       >
-        {/* Khung ảnh */}
-        <div
-          style={{
-            width: "125px",
-            minWidth: "125px",
-            minHeight: "420px",
-            backgroundColor: "#761b2f",
-            padding: "15px 11px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "8px",
-            boxSizing: "border-box",
-          }}
-        >
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              style={{
-                width: "100%",
-                height: "105px",
-                overflow: "hidden",
-              }}
-            >
-              <img
-                src={totnghiep}
-                alt="Graduation"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-            </div>
-          ))}
-        </div>
+     
 
         {/* Phần nội dung bên phải */}
         <div style={{ flex: 1, minWidth: 0 }} />

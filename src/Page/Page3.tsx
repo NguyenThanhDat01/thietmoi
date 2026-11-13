@@ -74,14 +74,14 @@ function Page3() {
       <h2
         style={{
           fontFamily: '"Times New Roman", Times, serif',
-          fontSize: "clamp(20px, 5vw, 30px)",
+          fontSize: "25px",
           color: "#f5aaa9",
           margin: "0 0 20px",
           fontWeight: "bold",
           whiteSpace: "nowrap",
         }}
       >
-        CÙNG ĐẾM NGƯỢC NHÉ
+        CÙNG LINLIN ĐIẾM NGƯỢC NHÉ
       </h2>
 
       {/* Đồng hồ */}

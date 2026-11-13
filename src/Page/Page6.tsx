@@ -1,35 +1,36 @@
 
 import { useEffect, useRef, useState } from "react";
-import totnghiep from "../assets/totphiep.jpg";
+import anh1 from "../assets/anh1.jpg";
+import anh4 from "../assets/anh4.jpg";
 import background2 from "../assets/backgourg2.png";
 
 function Page6() {
   const pageRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
+  // Kích hoạt hiệu ứng khi Page6 xuất hiện
   useEffect(() => {
+    const currentPage = pageRef.current;
+    if (!currentPage) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
       },
       {
         threshold: 0.2,
       }
     );
 
-    const currentPage = pageRef.current;
+    observer.observe(currentPage);
 
-    if (currentPage) {
-      observer.observe(currentPage);
-    }
-
-    return () => {
-      if (currentPage) {
-        observer.unobserve(currentPage);
-      }
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
+
+  const animationClass = visible ? "show" : "";
 
   const photoStyle: React.CSSProperties = {
     position: "absolute",
@@ -41,8 +42,6 @@ function Page6() {
     objectFit: "cover",
     opacity: 0,
   };
-
-  const animationClass = visible ? "show" : "";
 
   return (
     <div
@@ -131,6 +130,21 @@ function Page6() {
           .fly-6.show {
             animation: flyUp 0.8s ease-out 1.4s both;
           }
+
+          @media (prefers-reduced-motion: reduce) {
+            .photo-left,
+            .photo-right,
+            .fly-1,
+            .fly-2,
+            .fly-3,
+            .fly-4,
+            .fly-5,
+            .fly-6 {
+              animation: none !important;
+              opacity: 1 !important;
+              transform: none !important;
+            }
+          }
         `}
       </style>
 
@@ -145,7 +159,7 @@ function Page6() {
       >
         <img
           className={`photo-left ${animationClass}`}
-          src={totnghiep}
+          src={anh1}
           alt="Ảnh tốt nghiệp 1"
           style={{
             ...photoStyle,
@@ -156,7 +170,7 @@ function Page6() {
 
         <img
           className={`photo-right ${animationClass}`}
-          src={totnghiep}
+          src={anh4}
           alt="Ảnh tốt nghiệp 2"
           style={{
             ...photoStyle,
@@ -206,7 +220,7 @@ function Page6() {
           opacity: 0,
         }}
       >
-        VÀO 07:00, THỨ TƯ
+        VÀO 07:00
       </p>
 
       {/* Ngày tháng */}
@@ -231,17 +245,15 @@ function Page6() {
             padding: "7px 0",
             fontSize: "24px",
             fontStyle: "italic",
-            fontFamily: '"Times New Roman", Times, serif',
           }}
         >
-          THÁNG 11
+          THỨ TƯ
         </div>
 
         <strong
           style={{
             fontSize: "52px",
             color: "#85404b",
-            fontFamily: '"Times New Roman", Times, serif',
           }}
         >
           25
@@ -255,10 +267,9 @@ function Page6() {
             padding: "7px 0",
             fontSize: "24px",
             fontStyle: "italic",
-            fontFamily: '"Times New Roman", Times, serif',
           }}
         >
-          10:00 - 11:00
+          THÁNG 11
         </div>
       </div>
 

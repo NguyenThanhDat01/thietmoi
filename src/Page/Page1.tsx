@@ -1,4 +1,4 @@
-import totnghiep from "../assets/totphiep.jpg";
+import totnghiep from "../assets/totnghiep.png";
 
 function Page1() {
   return (
