@@ -7,24 +7,29 @@ import nhac from "./assets/nhac2.mp3";
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const openInvitation = async () => {
-    // Mở website Canva ở tab mới
+  const openInvitation = () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    audio.volume = 1;
+
+    // Phát nhạc ngay khi người dùng nhấn
+    const playPromise = audio.play();
+
+    // Mở website Canva
     const newTab = window.open(
       "https://gazelle-19h6vf.my.canva.site/lelamlinhh",
       "_blank"
     );
 
-    // Phát nhạc từ React
-    try {
-      await audioRef.current?.play();
-    } catch (error) {
-      console.log("Không thể phát nhạc:", error);
+    if (!newTab) {
+      alert("Vui lòng cho phép trình duyệt mở tab mới.");
     }
 
-    // Kiểm tra trình duyệt có chặn cửa sổ mới không
-    if (!newTab) {
-      alert("Trình duyệt đã chặn cửa sổ mới. Vui lòng cho phép mở tab mới.");
-    }
+    playPromise.catch((error) => {
+      console.log("Không thể phát nhạc:", error);
+    });
   };
 
   return (
@@ -35,6 +40,7 @@ function App() {
         src={nhac}
         loop
         preload="auto"
+        playsInline
       />
 
       <section className="opening">
